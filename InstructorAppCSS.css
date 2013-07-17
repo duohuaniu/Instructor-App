@@ -1,7 +1,12 @@
 table,th,td{
-	border: 1px solid black;
+	/*border: 0px solid black;*/
 }
 
 #temp{
 	margin-left: 40px;
+}
+
+#footer{
+	background-color: #FAF4F3;
+	color: red;
 }
