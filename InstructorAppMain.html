@@ -71,28 +71,37 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>048342</td>
-									<td>Greater New York</td>
-									<td>529 West 49th Street</td>
-									<td>New York</td>
-									<td>10019</td>
-									<td>NY</td>
-									<td>31</td>
-									<td>jgrant353</td>
-								</tr>
-								<tr>
-									<td>798243</td>
-									<td>Metro New York</td>
-									<td>99 Indian Field Rd</td>
-									<td>Greenwich</td>
-									<td>06830</td>
-									<td>CT</td>
-									<td>24</td>
-									<td>greenct304</td>
-								</tr>
+							    <?php
+                                    $dbh = mysql_connect("localhost","root","123456");
+		                            if(!$dbh){die("error");}
+		                            mysql_select_db("data", $dbh);
+		                            $m='wang';
+		                            $sql = "SELECT * FROM instructor";
+	                            ?>
+	                            <?php
+								    $result=mysql_query($sql);
+									while($row=mysql_fetch_array($result))
+                                    {									
+									echo "<tr>";
+									echo "<td>$row[2]</td>";
+									echo "<td>$row[3]</td>";
+									echo "<td>$row[4]</td>";
+									echo "<td>$row[5]</td>";
+									echo "<td>$row[6]</td>";
+									echo "<td>$row[7]</td>";
+									echo "<td>$row[8]</td>";
+									echo "<td>$row[9]</td>";
+								    echo "</tr>";
+								    }
+									mysql_close();
+								?>
 							</tbody>
 						</table>
+						<script type="text/javescript">
+						    $document.ready(function(){
+							    $('#table').dataTable();
+							});
+						</script>
 					</div>
 					<div class="container">
 						<div class="row-fluid" id="footer">
